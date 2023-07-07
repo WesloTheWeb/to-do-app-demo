@@ -1,0 +1,38 @@
+@import '../../variables.scss';
+
+.container {
+    background-color: $createTaskBackgroundColor;
+    border: 3px solid #f6f6f6;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0;
+    width: 25%;
+
+    input {
+        // padding: .75rem 1.25rem;
+        font-size: 1.25rem;
+        padding: .5rem;
+    }
+
+    & button {
+        background-color: $deleteTextButtonColor;
+        border: none;
+        border-radius: 15px;
+        padding: .75rem 1rem; 
+        margin: 1rem;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+    button:nth-child(1) {
+        background-color: $createTaskButtonColor;
+        color: $deleteTextColor;
+    }
+}

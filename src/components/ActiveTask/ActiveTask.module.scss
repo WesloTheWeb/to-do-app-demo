@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.container {
+    background-color: $activeTaskBackgroundColor;
+    color: #000;
+    margin: 1.5rem 0;
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}

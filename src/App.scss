@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+button {
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+}
+
+h1 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+h3 {
+    color: $subHeaderColor;
+    text-transform: capitalize;
+}
+
+.header {
+    margin: 1rem auto;
+    text-align: center;
+
+    h1 { 
+        margin-bottom: 0;
+    }
+}
