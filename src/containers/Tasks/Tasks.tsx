@@ -7,17 +7,7 @@ const { taskContainer } = classes;
 
 const Tasks = ({ }) => {
 
-    const [activeTasks, setActiveTasks] = useState<TaskModel[]>([
-        {
-            id: 1,
-            title: 'Clean Room',
-            due: 'End of month'
-        },
-        {
-            id: 2,
-            title: 'Summerfest to see Cafune'
-        }
-    ]);
+    const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
 
     return (
         <section className={taskContainer}>
