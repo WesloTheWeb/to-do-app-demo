@@ -1,7 +1,7 @@
 interface TaskModel {
-    id: number,
+    id: string,
     title: string,
-    due?: string
+    due: Date | undefined,
 }
 
 export default TaskModel;

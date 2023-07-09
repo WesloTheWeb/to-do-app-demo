@@ -1,18 +1,19 @@
-import { useState } from 'react';
 import classes from './Tasks.module.scss';
-import TaskModel from '../../interfaces/task.model';
 import ActiveTask from '../../components/ActiveTask/ActiveTask';
+import TaskModel from '../../interfaces/task.model';
 
 const { taskContainer } = classes;
 
-const Tasks = ({ }) => {
+interface TaskProps {
+    items: TaskModel[];  // items is an array of TaskModel
+};
 
-    const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
+const Tasks = ({items}: TaskProps) => {
 
     return (
         <section className={taskContainer}>
-            {activeTasks ?
-                activeTasks.map((item) => {
+            {items ?
+                items.map((item) => {
                     return (
                         <ActiveTask key={item.id} taskName={item} />
                     )

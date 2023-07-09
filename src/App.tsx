@@ -2,12 +2,19 @@ import { useState } from 'react';
 import CreateTask from './components/CreateTask/CreateTask';
 import './App.scss';
 import Tasks from './containers/Tasks/Tasks';
+import TaskModel from './interfaces/task.model';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
 
   const todoAddHandler = (text: string) => {
-    console.log('from top component', text);
+    // console.log('from top component', text);
+    setActiveTasks((prevTasks) => [
+      ...prevTasks,
+      { id: Math.random().toString(),
+        title: text,
+        due: undefined
+      }])
   };
 
   return (
@@ -19,7 +26,7 @@ function App() {
       <div>
         <CreateTask addTodo={todoAddHandler} />
       </div>
-       <Tasks />
+      <Tasks items={activeTasks} />
     </>
   )
 }
