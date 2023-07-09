@@ -7,13 +7,13 @@ import TaskModel from './interfaces/task.model';
 function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
 
-  const todoAddHandler = (text: string) => {
+  const todoAddHandler = (text: string, due?: Date) => {
     // console.log('from top component', text);
     setActiveTasks((prevTasks) => [
       ...prevTasks,
       { id: Math.random().toString(),
         title: text,
-        due: undefined
+        due: due
       }])
   };
 
