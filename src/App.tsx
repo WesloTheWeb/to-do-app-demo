@@ -4,7 +4,11 @@ import './App.scss';
 import Tasks from './containers/Tasks/Tasks';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const todoAddHandler = (text: string) => {
+    console.log('from top component', text);
+  };
 
   return (
     <>
@@ -13,7 +17,7 @@ function App() {
         <sub>Built with <a href='https://vitejs.dev/'>Vite</a></sub>
       </section>
       <div>
-        <CreateTask />
+        <CreateTask addTodo={todoAddHandler} />
       </div>
        <Tasks />
     </>
