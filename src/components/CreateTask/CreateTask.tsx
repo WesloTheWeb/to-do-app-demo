@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import classes from './CreateTask.module.scss';
 
+// TODO: Switch out ref for a own state. Better way to reset after each submission.
+
 const { container, actions } = classes;
 
 // Could be an interface and in interfaces, but just to prove you can do it with types too:

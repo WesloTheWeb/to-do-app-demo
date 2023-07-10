@@ -1,10 +1,38 @@
 @import '../../variables.scss';
 
 .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     background-color: $activeTaskBackgroundColor;
     color: #000;
     margin: 1.5rem 0;
     padding: .25rem .75rem;
     font-size: 1.25rem;
     font-weight: bold;
+
+    button {
+        padding: 1rem;
+        border: 2px solid #000;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0 .75rem;
+    }
+}
+
+.CTAactions {
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+
+    button {
+        background-color: red;
+        color: white;
+    }
+
+    button:nth-child(1) {
+        background-color: green;
+        color: white;
+    }
 }
