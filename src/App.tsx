@@ -18,9 +18,6 @@ function App() {
   };
 
   const deleteATask = (id: string) => {
-    // Mouse click select id from activeTasks array.
-    // const findId = activeTasks.findIndex(id => activeTasks.id)
-    // filter activeTasks so return a new activeTasks array on anything that is not a match of id.
     setActiveTasks(activeTasks.filter(task => task.id !== id))
   };
 

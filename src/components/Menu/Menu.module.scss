@@ -1,0 +1,22 @@
+.menu {
+    position: absolute;
+    border: 2px solid #000;
+    left: 0;
+    border-radius: 5px;
+    padding: 0 .75rem;
+    background-color: #fff;
+    color: #000;
+    margin-left: 2.5rem;
+
+    span {
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 1.2rem;
+        color: darkred;
+
+        &:hover {
+            color: red;
+            font-size: bold;
+        }
+    }
+}

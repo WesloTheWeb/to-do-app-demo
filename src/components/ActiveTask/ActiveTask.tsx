@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import TaskModel from '../../interfaces/task.model';
+import Menu from '../Menu/Menu';
 import classes from './ActiveTask.module.scss';
 
-const { container, CTAactions } = classes;
+const { container, CTAactions, taskMenu } = classes;
 
 // TODO: Add complete Logic and a counter of completed task.
 // TODO: Fix error handling if create no task. Need to think about the id output.
@@ -12,37 +14,37 @@ interface TaskProps {
 };
 
 const ActiveTask = ({ taskName, onDelete }: TaskProps) => {
+
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+    const toggleTaskMenu= () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const closeTaskMenu = () => {
+        setMenuOpen(false);
+    };
+
     return (
-        <div className={container}>
-            <p> {taskName.title} </p>
-            <div className={CTAactions}>
-                <button>Complete Task</button>
-                <button onClick={() => onDelete(taskName.id)}>Delete task</button>
+        <>
+            <div className={container} onMouseLeave={closeTaskMenu}>
+                <figure
+                    className={taskMenu}
+                    onClick={toggleTaskMenu}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                    </svg>
+                </figure>
+                {menuOpen ? <Menu mouseClose={closeTaskMenu} /> : null}
+                <p> {taskName.title} </p>
+                <div className={CTAactions}>
+                    <button>Complete Task</button>
+                    <button onClick={() => onDelete(taskName.id)}>Delete task</button>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default ActiveTask;
-
-/* Notes
-- Very important to have consistent file of interface so you can
-- link component prop interface to the model interface.
-
-- The arrow function () => {} is necessary to ensure the onDelete function is not called immediately when the component renders, 
-but only when the button is clicked.
-
--In TypeScript, void is a type that denotes the absence of having any type at all. When used as a function return type, 
-void indicates that a function does not return a value.
-
-- If a function was supposed to return a string, for example, the interface would look like this: onDelete: (id: string) => string;. 
-But in the case of an event handler function like onDelete, we're not interested in any return value. We simply want to perform an action 
-(deleting a task) when the function is called. Thus, we use void as the return type.
-
-
-
-
-
-
-
-*/
