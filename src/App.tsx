@@ -20,7 +20,7 @@ function App() {
   };
 
   const deleteATask = (id: string) => {
-    setActiveTasks(activeTasks.filter(task => task.id !== id))
+    setActiveTasks(activeTasks.filter(task => task.id !== id));
   };
 
   const handleComplete = (id: string) => {
@@ -30,10 +30,11 @@ function App() {
       const newActiveTasks = [...activeTasks];
       const completedTask = { ...newActiveTasks[taskIndex], completed: true };
 
+      // After copy and manipulations are made, we set the activeTask array state and the completed task array state.
       newActiveTasks.splice(taskIndex, 1);
       setActiveTasks(newActiveTasks);
       setCompletedTasks(prevTasks => [...prevTasks, completedTask]);
-    }
+    };
   };
 
   return (

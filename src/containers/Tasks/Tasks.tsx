@@ -5,9 +5,9 @@ import TaskModel from '../../interfaces/task.model';
 const { taskContainer, defaultStatus } = classes;
 
 interface TaskProps {
-    items: TaskModel[];  // items is an array of TaskModel
+    items: TaskModel[];  // items is an array of TaskModel, that will have the properties, since array of objects.
     onDelete: (id: string) => void;
-    onComplete: (id:string) => void;
+    onComplete: (id: string) => void;
 };
 
 const Tasks = ({ items, onDelete, onComplete }: TaskProps) => {
