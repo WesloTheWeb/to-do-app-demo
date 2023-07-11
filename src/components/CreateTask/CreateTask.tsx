@@ -15,7 +15,6 @@ const CreateTask = ({ addTodo }: NewToDoProps) => {
         evnt.preventDefault();
         addTodo(textInput);
         setTextInput(''); // Resets the text input after adding the task
-        console.log('function fired from within component!');
     };
 
     const handleInputChange = (evnt: React.ChangeEvent<HTMLInputElement>) => {
