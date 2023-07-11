@@ -1,7 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import classes from './CreateTask.module.scss';
-
-// TODO: Switch out ref for a own state. Better way to reset after each submission.
 
 const { container, actions } = classes;
 
@@ -11,12 +9,21 @@ type NewToDoProps = {
 };
 
 const CreateTask = ({ addTodo }: NewToDoProps) => {
-    const textInputRef = useRef<HTMLInputElement>(null);
+    const [textInput, setTextInput] = useState<string>('');
 
     const addTaskHandler = (evnt: React.FormEvent) => {
         evnt.preventDefault();
-        const enteredText = textInputRef.current!.value;
-        addTodo(enteredText);
+        addTodo(textInput);
+        setTextInput(''); // Resets the text input after adding the task
+        console.log('function fired from within component!');
+    };
+
+    const handleInputChange = (evnt: React.ChangeEvent<HTMLInputElement>) => {
+        const words = evnt.target.value.split(' ');
+        const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        const capitalizedInput = capitalizedWords.join(' ');
+        setTextInput(capitalizedInput);
+        // setTextInput(evnt?.target.value);
     };
 
     return (
@@ -24,10 +31,14 @@ const CreateTask = ({ addTodo }: NewToDoProps) => {
             <h3>Create a task</h3>
             <form onSubmit={addTaskHandler}>
                 <label htmlFor="todo-text">Write a task and then click the 'Create Task' to add to the To-Do List.</label>
-                <input placeholder='Create your task here' type="text" id="todo-text" ref={textInputRef} />
+                <input
+                    placeholder='Create your task here'
+                    type="text"
+                    id="todo-text"
+                    value={textInput}
+                    onChange={handleInputChange} />
                 <div className={actions}>
                     <button>Create Task</button>
-                    {/* <button>Clear</button> */}
                 </div>
             </form>
         </section>
