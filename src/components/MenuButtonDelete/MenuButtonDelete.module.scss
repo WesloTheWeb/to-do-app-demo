@@ -3,6 +3,14 @@ span.deleteBtnProperties {
     font-weight: normal;
     font-size: 1.2rem;
     color: darkred;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
 
     &:hover {
         color: red;
