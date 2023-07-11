@@ -1,0 +1,11 @@
+span.deleteBtnProperties {
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: darkred;
+
+    &:hover {
+        color: red;
+        font-size: bold;
+    }
+}

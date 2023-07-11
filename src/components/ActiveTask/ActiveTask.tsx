@@ -11,13 +11,14 @@ const { container, CTAactions, taskMenu } = classes;
 interface TaskProps {
     taskName: TaskModel;
     onDelete: (id: string) => void;  // add onDelete prop
+    id: string;              // id of the task to be deleted
 };
 
-const ActiveTask = ({ taskName, onDelete }: TaskProps) => {
+const ActiveTask = ({ taskName, onDelete, id }: TaskProps) => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-    const toggleTaskMenu= () => {
+    const toggleTaskMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
@@ -36,11 +37,14 @@ const ActiveTask = ({ taskName, onDelete }: TaskProps) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                     </svg>
                 </figure>
-                {menuOpen ? <Menu mouseClose={closeTaskMenu} /> : null}
+                {menuOpen ? <Menu
+                    mouseClose={closeTaskMenu}
+                    onDelete={onDelete}
+                    id={id}
+                /> : null}
                 <p> {taskName.title} </p>
                 <div className={CTAactions}>
                     <button>Complete Task</button>
-                    <button onClick={() => onDelete(taskName.id)}>Delete task</button>
                 </div>
             </div>
         </>

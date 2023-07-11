@@ -7,16 +7,4 @@
     background-color: #fff;
     color: #000;
     margin-left: 2.5rem;
-
-    span {
-        cursor: pointer;
-        font-weight: normal;
-        font-size: 1.2rem;
-        color: darkred;
-
-        &:hover {
-            color: red;
-            font-size: bold;
-        }
-    }
 }

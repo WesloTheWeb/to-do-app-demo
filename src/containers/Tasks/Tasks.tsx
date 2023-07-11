@@ -19,10 +19,11 @@ const Tasks = ({ items, onDelete }: TaskProps) => {
             {items.length > 0 ?
                 items.map((item) => {
                     return (
-                        <ActiveTask 
-                            key={item.id} 
-                            taskName={item} 
+                        <ActiveTask
+                            key={item.id}
+                            taskName={item}
                             onDelete={onDelete}
+                            id={item.id} // pass item.id, not id
                         />
                     )
                 }) : <p className={defaultStatus}> You have no active tasks.</p>
