@@ -1,6 +1,12 @@
 # to-do-app-demo
 Take two on TypeScript and I like it! Getting my feet wet in TypeScript. Trying something new and building this in Vite.
 
+## Launching the app on your local machine:
+This is using [Vite](https://vitejs.dev/), which is the de-facto replacement of CRA. To start the project:
+1. Clone this repository.
+2. Open the project folder you just cloned, and run `npm install`.
+3. Once dependencies installed, run the script `npm run dev`. Additionally you can look at the 'package.json' file
+to see available scripts, but this should run on http://localhost:5173/ not localhost:3000.
 
 ## Developer Notes
 As this is my first in-depth TypeScript project going to provide notes in this section to build strong habits, and to 
