@@ -6,7 +6,6 @@ import classes from './ActiveTask.module.scss';
 const { container, CTAactions, taskMenu } = classes;
 
 // TODO: Add complete Logic and a counter of completed task.
-// TODO: Fix error handling if create no task. Need to think about the id output.
 
 interface TaskProps {
     taskName: TaskModel;

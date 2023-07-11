@@ -40,4 +40,10 @@
         background-color: $createTaskButtonColor;
         color: $deleteTextColor;
     }
+
+    button:disabled {
+        background-color: $disabledBtn;
+        opacity: .7;
+        cursor: not-allowed;
+    }
 }

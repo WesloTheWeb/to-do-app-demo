@@ -6,7 +6,7 @@ const { deleteBtnProperties } = classes;
 interface MenuButtonDeleteProps {
     id: string;
     onDelete: (id: string) => void;  // add onDelete prop
-}
+};
 
 const MenuButtonDelete = ({ onDelete, id }: MenuButtonDeleteProps) => {
     return (

@@ -37,7 +37,7 @@ const CreateTask = ({ addTodo }: NewToDoProps) => {
                     value={textInput}
                     onChange={handleInputChange} />
                 <div className={actions}>
-                    <button>Create Task</button>
+                    <button disabled={textInput.trim() === ''}>Create Task</button>
                 </div>
             </form>
         </section>

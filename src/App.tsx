@@ -14,7 +14,7 @@ function App() {
         id: Math.random().toString(),
         title: text,
         due: due
-      }])
+      }]);
   };
 
   const deleteATask = (id: string) => {
