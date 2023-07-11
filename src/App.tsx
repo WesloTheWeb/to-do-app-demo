@@ -8,13 +8,20 @@ function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
 
   const todoAddHandler = (text: string, due?: Date) => {
-    // console.log('from top component', text);
     setActiveTasks((prevTasks) => [
       ...prevTasks,
-      { id: Math.random().toString(),
+      {
+        id: Math.random().toString(),
         title: text,
         due: due
       }])
+  };
+
+  const deleteATask = (id: string) => {
+    // Mouse click select id from activeTasks array.
+    // const findId = activeTasks.findIndex(id => activeTasks.id)
+    // filter activeTasks so return a new activeTasks array on anything that is not a match of id.
+    setActiveTasks(activeTasks.filter(task => task.id !== id))
   };
 
   return (
@@ -26,9 +33,9 @@ function App() {
       <div>
         <CreateTask addTodo={todoAddHandler} />
       </div>
-      <Tasks items={activeTasks} />
+      <Tasks items={activeTasks} onDelete={deleteATask} />
     </>
-  )
-}
+  );
+};
 
 export default App;

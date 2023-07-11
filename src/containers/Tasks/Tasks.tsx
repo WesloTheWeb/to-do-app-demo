@@ -6,9 +6,10 @@ const { taskContainer, defaultStatus } = classes;
 
 interface TaskProps {
     items: TaskModel[];  // items is an array of TaskModel
+    onDelete: (id: string) => void;
 };
 
-const Tasks = ({ items }: TaskProps) => {
+const Tasks = ({ items, onDelete }: TaskProps) => {
 
     return (
         <section className={taskContainer}>
@@ -18,7 +19,11 @@ const Tasks = ({ items }: TaskProps) => {
             {items.length > 0 ?
                 items.map((item) => {
                     return (
-                        <ActiveTask key={item.id} taskName={item} />
+                        <ActiveTask 
+                            key={item.id} 
+                            taskName={item} 
+                            onDelete={onDelete}
+                        />
                     )
                 }) : <p className={defaultStatus}> You have no active tasks.</p>
             }
