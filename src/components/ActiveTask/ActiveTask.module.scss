@@ -53,3 +53,15 @@
     width: 25px;
     cursor: pointer; 
 }
+
+svg.taskCompleted {
+    width: 50px;
+    fill: green;
+    color: gold;
+}
+
+.taskContainerCompleted {
+    background: grey;
+    opacity: .5;
+    text-decoration: line-through;
+}

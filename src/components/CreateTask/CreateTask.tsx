@@ -22,7 +22,6 @@ const CreateTask = ({ addTodo }: NewToDoProps) => {
         const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
         const capitalizedInput = capitalizedWords.join(' ');
         setTextInput(capitalizedInput);
-        // setTextInput(evnt?.target.value);
     };
 
     return (

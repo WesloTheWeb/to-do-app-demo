@@ -3,17 +3,17 @@ import TaskModel from '../../interfaces/task.model';
 import Menu from '../Menu/Menu';
 import classes from './ActiveTask.module.scss';
 
-const { container, CTAactions, taskMenu } = classes;
-
-// TODO: Add complete Logic and a counter of completed task.
+const { container, CTAactions, taskMenu, taskCompleted, taskContainerCompleted } = classes;
 
 interface TaskProps {
     taskName: TaskModel;
-    onDelete: (id: string) => void;  // add onDelete prop
+    onDelete: (id: string) => void;
+    onComplete?: (id: string) => void;
     id: string;              // id of the task to be deleted
+    isCompleted?: boolean;
 };
 
-const ActiveTask = ({ taskName, onDelete, id }: TaskProps) => {
+const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted }: TaskProps) => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -25,9 +25,15 @@ const ActiveTask = ({ taskName, onDelete, id }: TaskProps) => {
         setMenuOpen(false);
     };
 
+    const toggleCompleted = () => {
+        if (!isCompleted && onComplete) {  // only call onComplete if task is not completed
+            onComplete(id);
+        };
+    };
+
     return (
         <>
-            <div className={container} onMouseLeave={closeTaskMenu}>
+            <div className={`${container} ${isCompleted ? taskContainerCompleted : ''}`} onMouseLeave={closeTaskMenu}>
                 <figure
                     className={taskMenu}
                     onClick={toggleTaskMenu}
@@ -42,9 +48,18 @@ const ActiveTask = ({ taskName, onDelete, id }: TaskProps) => {
                     id={id}
                 /> : null}
                 <p> {taskName.title} </p>
-                <div className={CTAactions}>
-                    <button>Complete Task</button>
-                </div>
+                {isCompleted ?
+                    <div>
+                        <label>Completed!</label>
+                        <svg className={taskCompleted} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    :
+                    <div className={CTAactions}>
+                        <button onClick={toggleCompleted}>Complete Task</button>
+                    </div>
+                }
             </div>
         </>
     );
