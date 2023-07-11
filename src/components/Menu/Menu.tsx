@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Menu.module.scss';
-import MenuButtonDelete from '../MenuButtonDelete/MenuButtonDelete';
+import MenuButtonOptions from '../MenuButtonOptions/MenuButtonOptions';
 
 const { menu } = classes;
 
@@ -13,7 +13,7 @@ interface MenuProps {
 const Menu = ({ mouseClose, onDelete, id }: MenuProps) => {
     return (
         <nav className={menu} onMouseLeave={mouseClose}>
-            <MenuButtonDelete
+            <MenuButtonOptions
                 onDelete={onDelete}
                 id={id}
             />

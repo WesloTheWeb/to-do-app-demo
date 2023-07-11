@@ -1,0 +1,32 @@
+.menuButtonOptionsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: revert;
+    align-content: center;
+    font-size: 1.2rem;
+    font-weight: normal;
+
+    span {
+        display: block;
+        color: #000;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+span.deleteBtnProperties {
+    color: darkred;
+
+    &:hover {
+        color: red;
+        font-weight: bold;
+    }
+}

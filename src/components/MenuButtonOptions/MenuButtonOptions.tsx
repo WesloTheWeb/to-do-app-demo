@@ -1,16 +1,20 @@
 import React from 'react';
-import classes from './MenuButtonDelete.module.scss';
+import classes from './MenuButtonOptions.module.scss';
 
-const { deleteBtnProperties } = classes;
+const { deleteBtnProperties, menuButtonOptionsContainer } = classes;
 
-interface MenuButtonDeleteProps {
+interface MenuButtonOptionsProps {
     id: string;
     onDelete: (id: string) => void;  // add onDelete prop
 };
 
-const MenuButtonDelete = ({ onDelete, id }: MenuButtonDeleteProps) => {
+// TODO: Undo Logic when task is completed.
+// TODO: Conditional undo should be greyed out or only shown on the completed task array.
+// TODO: Get rid of being opacity'd.
+
+const MenuButtonOptions = ({ onDelete, id }: MenuButtonOptionsProps) => {
     return (
-        <>
+        <section className={menuButtonOptionsContainer}>
             <span
                 className={deleteBtnProperties}
                 onClick={() => onDelete(id)}>
@@ -19,8 +23,15 @@ const MenuButtonDelete = ({ onDelete, id }: MenuButtonDeleteProps) => {
                 </svg>
                 Delete Task
             </span>
-        </>
+            <span
+                onClick={() => console.log('Should undo and go to active')}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+                Undo
+            </span>
+        </section>
     );
 };
 
-export default MenuButtonDelete;
+export default MenuButtonOptions;
