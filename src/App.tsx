@@ -23,6 +23,11 @@ function App() {
     setActiveTasks(activeTasks.filter(task => task.id !== id));
   };
 
+  const deleteCompletedTask = (id: string) => {
+    setCompletedTasks(completedTasks.filter(task => task.id !== id));
+
+  }
+
   const handleComplete = (id: string) => {
     const taskIndex = activeTasks.findIndex(task => task.id === id);
 
@@ -64,7 +69,7 @@ function App() {
       />
       <CompletedTasks
         items={completedTasks.map(task => ({ ...task, completed: true }))}
-        onDelete={deleteATask}
+        onDelete={deleteCompletedTask}
         onUndo={handleUndo}
       />
     </>

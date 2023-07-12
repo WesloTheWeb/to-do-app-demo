@@ -40,3 +40,8 @@ The handleComplete function moves the task from the activeTasks array to the com
 `setActiveTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));`
 
 So, in essence, the handleComplete function handles both the removal of the task from the activeTasks array and the addition of it to the completedTasks array.
+
+### Lifting State up
+(App.tsx) Because there are two different components, Tasks and CompletedTasks has the same prop `onDelete` but,
+we can pass two different functions of deleting active tasks and completed task respectively. This is good practice and
+craftsmanship of code.

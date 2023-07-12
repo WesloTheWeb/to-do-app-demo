@@ -5,8 +5,6 @@ import classes from './ActiveTask.module.scss';
 
 const { container, CTAactions, taskMenu, taskCompleted, taskContainerCompleted } = classes;
 
-// TODO: Fix the onDelete so it can be deleted if it is completed.
-
 interface TaskProps {
     taskName: TaskModel;
     onDelete: (id: string) => void;
