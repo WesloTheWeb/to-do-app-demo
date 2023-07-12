@@ -8,7 +8,7 @@ interface MenuProps {
     mouseClose: () => void;  // The type for mouseClose prop
     onDelete: (id: string) => void;  // add onDelete prop
     onUndo: (id: string) => void;
-    isCompleted: (id: string) => void;
+    isCompleted?: boolean;
     id: string;              // id of the task to be deleted
 };
 
