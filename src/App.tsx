@@ -37,6 +37,17 @@ function App() {
     };
   };
 
+  const handleUndo = (id: string) => {
+    // Find the task in completedTasks
+    const taskToUndo = completedTasks.find(task => task.id === id);
+
+    // Add task to activeTasks and remove from completedTasks
+    if (taskToUndo) {
+      setActiveTasks([...activeTasks, { ...taskToUndo, completed: false }]);
+      setCompletedTasks(completedTasks.filter(task => task.id !== id));
+    };
+  };
+
   return (
     <>
       <section className="header">
@@ -54,6 +65,7 @@ function App() {
       <CompletedTasks
         items={completedTasks.map(task => ({ ...task, completed: true }))}
         onDelete={deleteATask}
+        onUndo={handleUndo}
       />
     </>
   );

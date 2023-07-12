@@ -11,11 +11,12 @@ interface TaskProps {
     taskName: TaskModel;
     onDelete: (id: string) => void;
     onComplete?: (id: string) => void;
+    onUndo: (id: string) => void;
     id: string;              // id of the task to be deleted
     isCompleted?: boolean;
 };
 
-const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted }: TaskProps) => {
+const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted, onUndo }: TaskProps) => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -47,14 +48,16 @@ const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted }: TaskPro
                 {menuOpen ? <Menu
                     mouseClose={closeTaskMenu}
                     onDelete={onDelete}
+                    onUndo={onUndo}
+                    isCompleted={isCompleted}
                     id={id}
                 /> : null}
                 <p> {taskName.title} </p>
                 {isCompleted ?
                     <div>
                         <label>Completed!</label>
-                        <svg className={taskCompleted} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg className={taskCompleted} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     :
