@@ -4,8 +4,8 @@ Take two on TypeScript and I like it! Getting my feet wet in TypeScript. Trying 
 ## Launching the app on your local machine:
 This is using [Vite](https://vitejs.dev/), which is the de-facto replacement of CRA. To start the project:
 1. Clone this repository.
-2. Open the project folder you just cloned, and run `npm install`.
-3. Once dependencies installed, run the script `npm run dev`. Additionally you can look at the 'package.json' file
+2. Open the project folder you just cloned, and run `npm install` in the root directory.
+3. Once the dependencies are installed, run the script `npm run dev`. Additionally you can look at the 'package.json' file
 to see available scripts, but this should run on http://localhost:5173/ not localhost:3000.
 
 ## Developer Notes
