@@ -12,4 +12,9 @@ $taskContainerBorderColor: #e7e8f3;
 
 // Task - Ticket
 $activeTaskBackgroundColor: #8B73FF;
-$activeTaskTextColor: #fff
+$activeTaskTextColor: #fff;
+$completedTaskTextColor: rgb(48 99 56 / 75%);
+
+// SVG
+$completedBadgeColor: green;
+$completedBadgeBorderColor: gold;

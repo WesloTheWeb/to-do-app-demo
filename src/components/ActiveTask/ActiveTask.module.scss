@@ -56,12 +56,15 @@
 
 svg.taskCompleted {
     width: 50px;
-    fill: green;
-    color: gold;
+    fill: $completedBadgeColor;
+    color: $completedBadgeBorderColor;
 }
 
 .taskContainerCompleted {
-    background: grey;
-    opacity: .5;
-    text-decoration: line-through;
+    background-color: $completedTaskTextColor;
+    font-weight: normal;
+
+    p {
+        text-decoration: line-through;
+    }
 }
