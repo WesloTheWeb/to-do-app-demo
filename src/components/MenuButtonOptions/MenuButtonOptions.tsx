@@ -10,8 +10,6 @@ interface MenuButtonOptionsProps {
     isCompleted?: boolean;
 };
 
-// TODO: Get rid of being opacity'd.
-
 const MenuButtonOptions = ({ onDelete, onUndo, isCompleted, id }: MenuButtonOptionsProps) => {
     return (
         <section className={menuButtonOptionsContainer}>
