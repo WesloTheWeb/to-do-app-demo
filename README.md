@@ -45,3 +45,13 @@ So, in essence, the handleComplete function handles both the removal of the task
 (App.tsx) Because there are two different components, Tasks and CompletedTasks has the same prop `onDelete` but,
 we can pass two different functions of deleting active tasks and completed task respectively. This is good practice and
 craftsmanship of code.
+
+
+### Passing state as prop
+(App.tsx -> OverlayModal.tsx -> Overlay.tsx) setModalVisible is a function that expects one argument, a boolean, to update the state. So, when you directly pass setModalVisible as a prop, it will execute with whatever arguments the parent component passes to it.
+
+However, in this case, the parent component isn't passing anything, which can lead to bugs or unexpected behavior.
+
+By using () => setModalVisible(false), you're creating a new function that doesn't expect any arguments and will always call setModalVisible with false when executed. This ensures that no matter what, setModalVisible is called with the expected arguments, preventing potential bugs.
+
+In essence, you are controlling the arguments passed to setModalVisible, making sure it always receives false, which is exactly what you want when closing the modal.

@@ -70,7 +70,14 @@ function App() {
 
   return (
     <>
-      {isModalVisible ? <OverlayModal onModalClose={handleCloseModal} /> : null}
+      {isModalVisible ?
+        <OverlayModal
+          onOverlayClose={() => setModalVisible(false)}
+          onModalClose={handleCloseModal}
+        />
+        :
+        null
+      }
       <section className="header">
         <h1>To-Do List Demo</h1>
         <sub>Built with <a href='https://vitejs.dev/'>Vite</a></sub>

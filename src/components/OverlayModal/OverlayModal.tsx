@@ -4,14 +4,15 @@ import Modal from '../Modal/Modal';
 
 interface OverlayModalProps {
     onModalClose: () => void;
+    onOverlayClose: (isVisible: boolean) => void;
     onApplyChanges?: (changes: any) => void;
 };
 
-const OverlayModal = ({onModalClose}: OverlayModalProps) => {
+const OverlayModal = ({ onOverlayClose }: OverlayModalProps) => {
     return (
         <>
-            <Overlay closeOverlay={onModalClose} />
-            <Modal  />
+            <Overlay closeOverlay={onOverlayClose} />
+            <Modal />
         </>
     );
 };
