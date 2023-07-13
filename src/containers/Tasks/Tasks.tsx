@@ -8,9 +8,10 @@ interface TaskProps {
     items: TaskModel[];  // items is an array of TaskModel, that will have the properties, since array of objects.
     onDelete: (id: string) => void;
     onComplete: (id: string) => void;
+    onEdit: (id: string) => void;
 };
 
-const Tasks = ({ items, onDelete, onComplete }: TaskProps) => {
+const Tasks = ({ items, onDelete, onComplete, onEdit }: TaskProps) => {
 
     return (
         <section className={taskContainer}>
@@ -25,6 +26,7 @@ const Tasks = ({ items, onDelete, onComplete }: TaskProps) => {
                             taskName={item}
                             onDelete={onDelete}
                             onComplete={onComplete}
+                            onEdit={onEdit}
                             id={item.id}
                         />
                     )

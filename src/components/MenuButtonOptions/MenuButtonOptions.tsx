@@ -6,15 +6,16 @@ const { deleteBtnProperties, menuButtonOptionsContainer } = classes;
 interface MenuButtonOptionsProps {
     id: string;
     onDelete: (id: string) => void;  // add onDelete prop
-    onUndo: (id: string) => void;
+    onUndo?: (id: string) => void;
     isCompleted?: boolean;
+    onEdit: (id: string) => void;
 };
 
-const MenuButtonOptions = ({ onDelete, onUndo, isCompleted, id }: MenuButtonOptionsProps) => {
+const MenuButtonOptions = ({ onDelete, onUndo, onEdit, isCompleted, id }: MenuButtonOptionsProps) => {
     return (
         <section className={menuButtonOptionsContainer}>
             <span
-                onClick={() => console.log('edit')}>
+                onClick={() => onEdit(id)}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                 </svg>
@@ -30,7 +31,7 @@ const MenuButtonOptions = ({ onDelete, onUndo, isCompleted, id }: MenuButtonOpti
             </span>
             {isCompleted && (
                 <span
-                    onClick={() => onUndo(id)}>
+                    onClick={() => { if (onUndo) onUndo(id) }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
                     </svg>

@@ -9,12 +9,13 @@ interface TaskProps {
     taskName: TaskModel;
     onDelete: (id: string) => void;
     onComplete?: (id: string) => void;
-    onUndo: (id: string) => void;
+    onUndo?: (id: string) => void;
+    onEdit: (id: string) => void;
     id: string;              // id of the task to be deleted
     isCompleted?: boolean;
 };
 
-const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted, onUndo }: TaskProps) => {
+const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted, onUndo, onEdit }: TaskProps) => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -48,6 +49,7 @@ const ActiveTask = ({ taskName, onDelete, id, onComplete, isCompleted, onUndo }:
                     onDelete={onDelete}
                     onUndo={onUndo}
                     isCompleted={isCompleted}
+                    onEdit={onEdit}
                     id={id}
                 /> : null}
                 <p> {taskName.title} </p>

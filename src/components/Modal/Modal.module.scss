@@ -2,13 +2,9 @@
 
 .container {
     position: fixed;
-    /* Changed from absolute to fixed */
     top: 50%;
-    /* Position the top edge of the modal in the center of the viewport */
     left: 50%;
-    /* Position the left edge of the modal in the center of the viewport */
     transform: translate(-50%, -50%);
-    /* Adjust the modal so its center is in the center of the viewport */
     background-color: #fff;
     border-radius: 10px;
     padding: 1rem;

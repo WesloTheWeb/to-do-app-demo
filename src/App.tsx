@@ -4,8 +4,7 @@ import './App.scss';
 import Tasks from './containers/Tasks/Tasks';
 import CompletedTasks from './containers/CompletedTasks/CompletedTasks';
 import TaskModel from './interfaces/task.model';
-import Overlay from './components/Overlay/Overlay';
-import Modal from './components/Modal/Modal';
+import OverlayModal from './components/OverlayModal/OverlayModal';
 
 // TODO: Work on functionality for editing an active task.
 // TODO: Touch up on font styles.
@@ -15,6 +14,7 @@ import Modal from './components/Modal/Modal';
 function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
   const [completedTasks, setCompletedTasks] = useState<TaskModel[]>([]);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const todoAddHandler = (text: string, due?: Date) => {
     setActiveTasks((prevTasks) => [
@@ -60,10 +60,17 @@ function App() {
     };
   };
 
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
   return (
     <>
-      <Overlay />
-      <Modal />
+      {isModalVisible ? <OverlayModal onModalClose={handleCloseModal} /> : null}
       <section className="header">
         <h1>To-Do List Demo</h1>
         <sub>Built with <a href='https://vitejs.dev/'>Vite</a></sub>
@@ -75,6 +82,7 @@ function App() {
         items={activeTasks.map(task => ({ ...task, completed: false }))}
         onDelete={deleteATask}
         onComplete={handleComplete}
+        onEdit={handleOpenModal}
       />
       <CompletedTasks
         items={completedTasks.map(task => ({ ...task, completed: true }))}
