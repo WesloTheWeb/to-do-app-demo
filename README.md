@@ -55,3 +55,21 @@ However, in this case, the parent component isn't passing anything, which can le
 By using () => setModalVisible(false), you're creating a new function that doesn't expect any arguments and will always call setModalVisible with false when executed. This ensures that no matter what, setModalVisible is called with the expected arguments, preventing potential bugs.
 
 In essence, you are controlling the arguments passed to setModalVisible, making sure it always receives false, which is exactly what you want when closing the modal.
+
+
+## Take Aways I wish to share for those learning and viewing this repo:
+1. State Management: Keeping state at the highest common ancestor of components that need the state is a good practice (also known as "lifting state up"). In this case, it is the App component. This makes it easy to pass state and state changing functions down to child components as props. However, in larger applications, this can lead to "prop drilling", where props have to be passed through multiple levels of components. To address this, you might want to explore state management libraries like Redux or context-based solutions like React's Context API.
+
+2. Components Communication: Parent-child communication in React is done mainly via props. Child components can communicate with parents by calling functions passed down to them as props (like what we did with onApplyChanges), and parent components can pass information down to children via props (like currentTaskId).
+
+3. Controlled Components: The input field in the modal is a controlled component because its value is directly controlled by React state (inputValue), which gives you more control over the component's behavior.
+
+4. Conditional Rendering: Use conditional rendering wisely to ensure components are only rendered when needed. The modal component is a good example of this.
+
+5. Prevent Default Behavior: Use event.preventDefault() to prevent the default behavior of elements, especially form elements. This is crucial in situations like form submission, where the default behavior may result in unwanted page refreshes.
+
+6. Error Handling & Input Validation: It's important to validate inputs and handle possible error scenarios in the UI. We did this by disabling the "Apply Changes" button if the input field was empty.
+
+
+### Closing Thoughts
+This is ultimately a giant form of creating, reading, updating and deleting, but I am more comfortable with TypeScript in regards to React. Maybe I'll add more features like a wheel for task or something new. This was a great project because my go-to would be React Hook Forms, and forms can be tricky and tedious. If I had a choice I probably would do React Hook Form only to take advantage of that library's error handling, but it always is good to see forms from a native point of view.
