@@ -3,7 +3,17 @@ import classes from './Modal.module.scss';
 
 const { container, modalActions, editSection } = classes;
 
-const Modal = ({ }) => {
+interface ModalProps {
+    discardChanges: (isVisible: boolean) => void;
+};
+
+const Modal = ({ discardChanges }: ModalProps) => {
+
+    const handleDiscardChanges = (evnt: React.MouseEvent<HTMLButtonElement>) => {
+        evnt.preventDefault();
+        discardChanges(false);
+    };
+
     return (
         <form className={container}>
             <h4>Change Tasks</h4>
@@ -13,7 +23,7 @@ const Modal = ({ }) => {
                 <input placeholder='Change Task Name' />
             </section>
             <div className={modalActions}>
-                <button>Discard Changes</button>
+                <button onClick={handleDiscardChanges}>Discard Changes</button>
                 <button>Apply Changes</button>
             </div>
         </form>

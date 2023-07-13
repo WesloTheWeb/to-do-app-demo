@@ -12,7 +12,7 @@ const OverlayModal = ({ onOverlayClose }: OverlayModalProps) => {
     return (
         <>
             <Overlay closeOverlay={onOverlayClose} />
-            <Modal />
+            <Modal discardChanges={onOverlayClose} />
         </>
     );
 };
