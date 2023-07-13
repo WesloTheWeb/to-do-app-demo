@@ -5,6 +5,11 @@ import Tasks from './containers/Tasks/Tasks';
 import CompletedTasks from './containers/CompletedTasks/CompletedTasks';
 import TaskModel from './interfaces/task.model';
 
+// TODO: Work on functionality for editing an active task.
+// TODO: Touch up on font styles.
+// TODO: Clean up and organized scss and variables.
+// TODO: Make it mobile responsive, media queries. 
+
 function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
   const [completedTasks, setCompletedTasks] = useState<TaskModel[]>([]);
