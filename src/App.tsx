@@ -6,7 +6,8 @@ import CompletedTasks from './containers/CompletedTasks/CompletedTasks';
 import TaskModel from './interfaces/task.model';
 import OverlayModal from './components/OverlayModal/OverlayModal';
 
-// TODO: Work on functionality for editing an active task.
+// TODO: Review code
+// TODO: Add edit functionality for completed task
 // TODO: Touch up on font styles.
 // TODO: Clean up and organized scss and variables.
 // TODO: Make it mobile responsive, media queries. 

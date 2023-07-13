@@ -18,7 +18,8 @@
         margin: 0 auto;
     }
 
-    button, input {
+    button,
+    input {
         display: block;
         border: none;
         padding: .75rem;
@@ -59,6 +60,13 @@
                     font-weight: bold;
                 }
             }
+        }
+
+        button:disabled, button:disabled:hover {
+            font-weight: normal;
+            background-color: $disabledBtn;
+            opacity: .7;
+            cursor: not-allowed;
         }
     }
 }

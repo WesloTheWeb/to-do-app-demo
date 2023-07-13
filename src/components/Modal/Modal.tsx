@@ -44,8 +44,14 @@ const Modal = ({ discardChanges, onApplyChanges, currentTaskId, currentTask }: M
                 />
             </section>
             <div className={modalActions}>
-                <button onClick={handleDiscardChanges}>Discard Changes</button>
-                <button onClick={handleApplyChanges}>Apply Changes</button>
+                <button
+                    type='button'
+                    onClick={handleDiscardChanges}>Discard Changes</button>
+                <button
+                    onClick={handleApplyChanges}
+                    disabled={inputValue.trim().length < 1}
+                >Apply Changes
+                </button>
             </div>
         </form>
     );
