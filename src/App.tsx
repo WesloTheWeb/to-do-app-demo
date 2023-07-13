@@ -4,6 +4,8 @@ import './App.scss';
 import Tasks from './containers/Tasks/Tasks';
 import CompletedTasks from './containers/CompletedTasks/CompletedTasks';
 import TaskModel from './interfaces/task.model';
+import Overlay from './components/Overlay/Overlay';
+import Modal from './components/Modal/Modal';
 
 // TODO: Work on functionality for editing an active task.
 // TODO: Touch up on font styles.
@@ -60,6 +62,8 @@ function App() {
 
   return (
     <>
+      <Overlay />
+      <Modal />
       <section className="header">
         <h1>To-Do List Demo</h1>
         <sub>Built with <a href='https://vitejs.dev/'>Vite</a></sub>

@@ -1,0 +1,76 @@
+@import '../../variables.scss';
+
+.container {
+    position: fixed;
+    /* Changed from absolute to fixed */
+    top: 50%;
+    /* Position the top edge of the modal in the center of the viewport */
+    left: 50%;
+    /* Position the left edge of the modal in the center of the viewport */
+    transform: translate(-50%, -50%);
+    /* Adjust the modal so its center is in the center of the viewport */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #000;
+    z-index: 3;
+    width: 30%;
+    height: 35%;
+    text-align: center;
+
+    p {
+        margin: 0 auto;
+    }
+
+    button, input {
+        display: block;
+        border: none;
+        padding: .75rem;
+    }
+
+    input {
+        margin-bottom: 1rem;
+        max-width: 65%;
+    }
+
+    button {
+        color: $generalButtonTextColor
+    }
+
+    .modalActions {
+        display: flex;
+        justify-content: end;
+
+        button {
+            margin: 0 .25rem;
+
+            &:nth-child(1) {
+                background-color: $deleteTextButtonColor;
+
+                &:hover {
+                    background-color: #711919;
+                    opacity: 1;
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(2) {
+                background-color: $createTaskButtonColor;
+
+                &:hover {
+                    background-color: #141d68;
+                    opacity: 1;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.editSection {
+    text-align: left;
+
+    input {
+        border: 2px solid #000;
+    }
+}
