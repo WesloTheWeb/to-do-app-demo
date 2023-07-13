@@ -15,6 +15,9 @@ function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
   const [completedTasks, setCompletedTasks] = useState<TaskModel[]>([]);
   const [isModalVisible, setModalVisible] = useState(false);
+  const [currentTaskId, setCurrentTaskId] = useState<string | null>(null);
+
+  const currentTask = activeTasks.find(task => task.id === currentTaskId) || completedTasks.find(task => task.id === currentTaskId);
 
   const todoAddHandler = (text: string, due?: Date) => {
     setActiveTasks((prevTasks) => [
@@ -60,20 +63,36 @@ function App() {
     };
   };
 
-  const handleCloseModal = () => {
-    setModalVisible(false);
+  const handleOpenModal = (id: string) => {
+    setCurrentTaskId(id);
+    setModalVisible(true);
   };
 
-  const handleOpenModal = () => {
-    setModalVisible(true);
+  // Editing and applying changes:
+
+  const handleApplyChanges = (changes: { id: string, newTitle: string }) => {
+    // Iterate over active tasks, search for the right id.
+    setActiveTasks(prevTasks => {
+      return prevTasks.map(task =>
+        task.id === changes.id ? { ...task, title: changes.newTitle } : task
+      );
+    });
+
+    setCompletedTasks(prevTasks => {
+      return prevTasks.map(task =>
+        task.id === changes.id ? { ...task, title: changes.newTitle } : task
+      );
+    });
   };
 
   return (
     <>
       {isModalVisible ?
         <OverlayModal
+          currentTaskId={currentTaskId}
           onOverlayClose={() => setModalVisible(false)}
-          onModalClose={handleCloseModal}
+          onApplyChanges={handleApplyChanges}
+          currentTask={currentTask}
         />
         :
         null
