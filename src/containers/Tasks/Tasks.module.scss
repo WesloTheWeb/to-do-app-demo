@@ -5,9 +5,18 @@
     padding: 2rem 3rem;
     margin: 2rem 2.75rem;
 
-    h4, .defaultStatus {
+    @media #{$mq-smallScreenTwo} {
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h4,
+    .defaultStatus {
         display: block;
         text-align: center;
         margin: 0 auto;
     }
+
+
 }

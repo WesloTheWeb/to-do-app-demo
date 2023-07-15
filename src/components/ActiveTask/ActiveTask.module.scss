@@ -14,9 +14,20 @@
     font-size: 1.85rem;
     font-weight: bold;
 
+    @media #{$mq-smallScreenTwo} {
+        display: flex;
+    }
+
     p {
         margin-top: 1.5rem;
         margin-bottom: 0;
+
+        @media #{$mq-smallScreenTwo} {
+            font-size: 1.2rem;
+            text-align: left;
+            line-height: 1.25;
+            margin-top: 1.5rem;
+        }
     }
 
     button {
@@ -26,6 +37,16 @@
         font-size: 1rem;
         font-weight: bold;
         margin: 0 .75rem;
+
+        @media #{$mq-smallScreenTwo} {
+            margin: 1.5rem;
+        }
+    }
+
+    label {
+        @media #{$mq-smallScreenTwo} {
+            font-size: 1.257rem;
+        }
     }
 }
 
@@ -34,6 +55,12 @@
     button {
         background-color: $completeTaskBackgroundColor;
         color: $activeTaskButtonTextColor;
+
+        @media #{$mq-smallScreenTwo} {
+            font-size: .75rem;
+            padding: 0.5rem;
+            margin: 0;        
+        }
     }
 }
 
@@ -44,6 +71,11 @@
     height: 25px;
     width: 25px;
     cursor: pointer;
+
+    @media #{$mq-smallScreenTwo} {
+        height: 8px;
+    }
+
 }
 
 svg.taskCompleted {
