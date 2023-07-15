@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './MenuButtonOptions.module.scss';
 
 const { deleteBtnProperties, menuButtonOptionsContainer } = classes;

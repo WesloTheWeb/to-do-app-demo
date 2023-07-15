@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import TaskModel from '../../interfaces/task.model';
 import Overlay from '../Overlay/Overlay';
 import Modal from '../Modal/Modal';

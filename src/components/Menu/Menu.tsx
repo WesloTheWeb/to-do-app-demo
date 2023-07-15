@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './Menu.module.scss';
 import MenuButtonOptions from '../MenuButtonOptions/MenuButtonOptions';
 
