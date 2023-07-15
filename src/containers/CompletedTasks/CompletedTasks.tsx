@@ -8,9 +8,10 @@ interface TaskProps {
     items: TaskModel[];  // items is an array of TaskModel
     onDelete: (id: string) => void;
     onUndo: (id: string) => void;
+    onEdit: (id: string) => void;
 };
 
-const CompletedTasks = ({ items, onDelete, onUndo }: TaskProps) => {
+const CompletedTasks = ({ items, onDelete, onUndo, onEdit }: TaskProps) => {
 
     return (
         <section className={taskContainer}>
@@ -26,6 +27,7 @@ const CompletedTasks = ({ items, onDelete, onUndo }: TaskProps) => {
                             taskName={item}
                             onDelete={onDelete}
                             onUndo={onUndo}
+                            onEdit={onEdit}
                             id={item.id}
                             isCompleted={item.completed} // pass completed status
                         />

@@ -28,7 +28,10 @@ const CreateTask = ({ addTodo }: NewToDoProps) => {
         <section className={container}>
             <h3>Create a task</h3>
             <form onSubmit={addTaskHandler}>
-                <label htmlFor="todo-text">Write a task and then click the 'Create Task' to add to the To-Do List.</label>
+                <label htmlFor="todo-text">
+                    Write a task and then click the 'Create Task' to add to the To-Do List. More options are available
+                    on the menu to edit or delete.
+                </label>
                 <input
                     placeholder='Create your task here'
                     type="text"

@@ -7,7 +7,6 @@ import TaskModel from './interfaces/task.model';
 import OverlayModal from './components/OverlayModal/OverlayModal';
 
 // TODO: Review code
-// TODO: Add edit functionality for completed task
 // TODO: Touch up on font styles.
 // TODO: Clean up and organized scss and variables.
 // TODO: Make it mobile responsive, media queries. 
@@ -37,7 +36,7 @@ function App() {
   const deleteCompletedTask = (id: string) => {
     setCompletedTasks(completedTasks.filter(task => task.id !== id));
 
-  }
+  };
 
   const handleComplete = (id: string) => {
     const taskIndex = activeTasks.findIndex(task => task.id === id);
@@ -115,6 +114,7 @@ function App() {
         items={completedTasks.map(task => ({ ...task, completed: true }))}
         onDelete={deleteCompletedTask}
         onUndo={handleUndo}
+        onEdit={handleOpenModal}
       />
     </>
   );
