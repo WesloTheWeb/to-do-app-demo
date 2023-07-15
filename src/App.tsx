@@ -8,7 +8,6 @@ import OverlayModal from './components/OverlayModal/OverlayModal';
 
 // TODO: Review code
 // TODO: Touch up on font styles.
-// TODO: Clean up and organized scss and variables.
 // TODO: Make it mobile responsive, media queries. 
 
 function App() {

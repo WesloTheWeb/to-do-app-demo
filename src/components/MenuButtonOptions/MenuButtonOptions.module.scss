@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .menuButtonOptionsContainer {
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@
 }
 
 span.deleteBtnProperties {
-    color: darkred;
+    color: $deleteTextButtonColor;
 
     &:hover {
         color: red;
