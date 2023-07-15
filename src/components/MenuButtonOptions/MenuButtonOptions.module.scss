@@ -15,6 +15,7 @@
 
         &:hover {
             font-weight: bold;
+            background-color: rgb(68, 68, 71, .5);
         }
     }
 
@@ -28,7 +29,6 @@ span.deleteBtnProperties {
     color: $deleteTextButtonColor;
 
     &:hover {
-        color: red;
         font-weight: bold;
     }
 }

@@ -72,4 +72,4 @@ In essence, you are controlling the arguments passed to setModalVisible, making 
 
 
 ### Closing Thoughts
-This is ultimately a giant form of creating, reading, updating and deleting, but I am more comfortable with TypeScript in regards to React. Maybe I'll add more features like a wheel for task or something new. This was a great project because my go-to would be React Hook Forms, and forms can be tricky and tedious. If I had a choice I probably would do React Hook Form only to take advantage of that library's error handling, but it always is good to see forms from a native point of view.
+This is ultimately a giant form of creating, reading, updating and deleting, but I am more comfortable with TypeScript in regards to React. Maybe I'll add more features like a wheel for task or something new. I did want to do a timestamp but maybe later. This was a great project because my go-to would be React Hook Forms, and forms can be tricky and tedious. If I had a choice I probably would do React Hook Form only to take advantage of that library's error handling, but it always is good to see forms from a native point of view.

@@ -6,10 +6,6 @@ import CompletedTasks from './containers/CompletedTasks/CompletedTasks';
 import TaskModel from './interfaces/task.model';
 import OverlayModal from './components/OverlayModal/OverlayModal';
 
-// TODO: Review code
-// TODO: Touch up on font styles.
-// TODO: Make it mobile responsive, media queries. 
-
 function App() {
   const [activeTasks, setActiveTasks] = useState<TaskModel[]>([]);
   const [completedTasks, setCompletedTasks] = useState<TaskModel[]>([]);
@@ -34,7 +30,6 @@ function App() {
 
   const deleteCompletedTask = (id: string) => {
     setCompletedTasks(completedTasks.filter(task => task.id !== id));
-
   };
 
   const handleComplete = (id: string) => {
